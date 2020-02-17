@@ -1,0 +1,38 @@
+<!-- Adam Bender
+Tyler Wiggins
+Milestone 2
+February 16, 2020
+Product page -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+			<div align="center">
+				<!-- Data table that displays products for sale -->
+				<h:dataTable value="#{productList.products}" var="p"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						#{p.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Product Name</f:facet>
+						#{p.name}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Price</f:facet>
+						#{p.price}
+					</h:column>
+				</h:dataTable>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

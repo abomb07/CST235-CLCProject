@@ -1,0 +1,28 @@
+<!-- Adam Bender
+Tyler Wiggins
+Milestone 2
+February 16, 2020
+Common Header reusable facelet -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition>
+	<h:outputStylesheet library="css" name="style.css" />
+
+	<!-- Application title -->
+	<div class="header">
+		<h2>Adam and Tyler's Store</h2>
+		<h:form>
+			<!-- Application navigation bar -->
+			<h:commandButton action="HomePage" value="Home" />
+			<h:commandButton action="LoginPage" value="Login" />
+			<h:commandButton action="RegisterPage" value="Register" />
+		</h:form>
+	</div>
+	<br />
+</ui:composition>
+</html>

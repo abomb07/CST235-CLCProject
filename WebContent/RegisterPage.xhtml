@@ -1,0 +1,67 @@
+<!-- Adam Bender
+Tyler Wiggins
+Milestone 2
+February 16, 2020
+Register page -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+			<div align="center">
+				<!-- Register fields in a table -->
+				<f:view>
+					<h:form>
+						<table frame="box">
+							<tr>
+								<td><h:outputText value="Username: " /></td>
+								<td><h:inputText id="username" value="#{user.username}" />
+								</td>
+								<td><h:message for="username" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Password: " /></td>
+								<td><h:inputText id="password" value="#{user.password}" />
+								</td>
+								<td><h:message for="password" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="First Name: " /></td>
+								<td><h:inputText id="firstName" value="#{user.firstName}" />
+								</td>
+								<td><h:message for="firstName" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Last Name: " /></td>
+								<td><h:inputText id="lastName" value="#{user.lastName}" />
+								</td>
+								<td><h:message for="lastName" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Email: " /></td>
+								<td><h:inputText id="email" value="#{user.email}" /></td>
+								<td><h:message for="email" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Phone Number: " /></td>
+								<td><h:inputText id="phoneNumber"
+										value="#{user.phoneNumber}" /></td>
+								<td><h:message for="phoneNumber" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:commandButton value="Register"
+										action="#{user.register()}" /></td>
+							</tr>
+						</table>
+					</h:form>
+				</f:view>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
