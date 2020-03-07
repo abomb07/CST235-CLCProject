@@ -15,13 +15,9 @@ Product page -->
 		<ui:define name="content">
 			<div align="center">
 				<!-- Data table that displays products for sale -->
-				<h:dataTable value="#{productList.products}" var="p"
+				<h:dataTable value="#{productController.pbs.products}" var="p"
 					styleClass="order-table" headerClass="order-table-header"
 					rowClasses="order-table-odd-row,order-table-even-row">
-					<h:column>
-						<f:facet name="header">ID</f:facet>
-						#{p.id}
-					</h:column>
 					<h:column>
 						<f:facet name="header">Product Name</f:facet>
 						#{p.name}
@@ -29,6 +25,26 @@ Product page -->
 					<h:column>
 						<f:facet name="header">Price</f:facet>
 						#{p.price}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Image</f:facet>
+						#{p.image}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Category</f:facet>
+						#{p.category}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Short Description</f:facet>
+						#{p.short_description}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Long Description</f:facet>
+						#{p.long_description}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Quantity</f:facet>
+						#{p.quantity}
 					</h:column>
 				</h:dataTable>
 			</div>

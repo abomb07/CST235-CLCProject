@@ -15,9 +15,9 @@ Login success page -->
 		<ui:define name="content">
 			<div align="center">
 				<!-- Shows who is logged in and offers product page link -->
-				<h1>LOGGED IN AS: #{user.username}</h1>
+ 				<h1>LOGGED IN AS #{user.username}</h1>
 				<br />
-				<h:link value="View Products" outcome="MainProductPage" />
+				<h:link value="Add New Product" outcome="AddNewProduct" />
 			</div>
 		</ui:define>
 	</ui:composition>

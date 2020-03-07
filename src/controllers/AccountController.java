@@ -6,23 +6,40 @@ Account Controller*/
 
 package controllers;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 import beans.User;
+import business.UserBusinessService;
 
-public class AccountController {
-	// future development
-//	public String authenticate(User user)
-//	{
-//		
-//	}
+@ManagedBean
+@ViewScoped
+public class AccountController 
+{
+	@Inject
+	UserBusinessService ubs;
+	
+	public String authenticate(User user) 
+	{
+		// if user is authenticated go home else display error
+		if (ubs.authenticate(user)) 
+		{
+			FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
+			return "LoginSuccessPage.xhtml";
+		} else {
+			return "FailPage.xhtml";
+		}
+	}
 
-//	public String register(User user)
-//	{
-//		
-//	}
+	public String register(User user) 
+	{
+		// if user is found go home else display error
+		if (ubs.register(user)) {
+			return "RegisterSuccessPage.xhtml";
+		} else {
+			return "FailPage.xhtml";
+		}
+	}
 }

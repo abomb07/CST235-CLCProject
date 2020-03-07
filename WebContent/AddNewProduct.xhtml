@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+			<div align="center">
+				<!-- New product fields in a table -->
+				<f:view>
+					<h:form>
+						<table frame="box">
+							<tr>
+								<td><h:outputText value="Name: " /></td>
+								<td><h:inputText id="name" value="#{products.name}" />
+								</td>
+								<td><h:message for="name" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Price: " /></td>
+								<td><h:inputText id="price" value="#{products.price}" />
+								</td>
+								<td><h:message for="price" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Image: " /></td>
+								<td><h:inputText id="image" value="#{products.image}" /></td>
+								<td><h:message for="image" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Category: " /></td>
+								<td><h:inputText id="category" value="#{products.category}" /></td>
+								<td><h:message for="category" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Short Description: " /></td>
+								<td><h:inputText id="short_description" value="#{products.short_description}" /></td>
+								<td><h:message for="short_description" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Long Description: " /></td>
+								<td><h:inputText id="long_description" value="#{products.long_description}" /></td>
+								<td><h:message for="long_description" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Quantity: " /></td>
+								<td><h:inputText id="quantity" value="#{products.quantity}" /></td>
+								<td><h:message for="quantity" style="color:red" /></td>
+							</tr>
+							<tr>
+								<td><h:commandButton value="Add Product"
+										action="#{productController.addProduct(products)}" /></td>
+							</tr>
+						</table>
+					</h:form>
+				</f:view>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body> 
+</html>
