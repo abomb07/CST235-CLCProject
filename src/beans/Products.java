@@ -32,7 +32,7 @@ public class Products {
 	String image = "";
 	
 	@NotNull(message = "Please, enter product category!")
-	@Size(min = 4, max = 100)
+	@Size(min = 4, max = 128)
 	String category = "";
 	
 	@NotNull(message = "Please, enter product short description!")
@@ -47,7 +47,9 @@ public class Products {
 	@Max(10000)
 	int quantity = 0;
 
-	// non default constructor
+	/**
+	 * Non default constructor
+	 */
 	public Products(int id, String name, float price, String image, String category, String short_description, String long_description, int quantity) {
 		super();
 		this.id = id;
@@ -60,7 +62,9 @@ public class Products {
 		this.quantity = quantity;
 	}
 	
-	//default constructor
+	/**
+	 * 
+	 */
 	public Products()
 	{
 		name = "";
