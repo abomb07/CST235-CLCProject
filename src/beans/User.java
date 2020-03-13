@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 2
-February 16, 2020
+Milestone 3
+March 13, 2020
 User Model*/
 
 package beans;
@@ -97,6 +97,4 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
-	
 }

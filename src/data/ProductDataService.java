@@ -1,3 +1,9 @@
+/*Adam Bender
+Tyler Wiggins
+Milestone 3
+March 13, 2020
+Product Data Service*/
+
 package data;
 
 import java.sql.Connection;
@@ -13,10 +19,15 @@ import beans.Database;
 import beans.Products;
 
 public class ProductDataService {
+	
 	private Database connection = null;
 
-	public ProductDataService(Database connection) {
-		super();
+	/**
+	 * Non defualt constructor takes database parameter
+	 * @param connection
+	 */
+	public ProductDataService(Database connection) 
+	{
 		this.connection = connection;
 	}
 
@@ -60,6 +71,10 @@ public class ProductDataService {
 		}
 	}
 
+	/**
+	 * Find all products in the products database table
+	 * @return
+	 */
 	public List<Products> findAllProducts() 
 	{
 		Connection conn = null;

@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 2
-February 16, 2020
+Milestone 3
+March 13, 2020
 Account Controller*/
 
 package controllers;
@@ -21,6 +21,11 @@ public class AccountController
 	@Inject
 	UserBusinessService ubs;
 	
+	/**
+	 * Call authenticate in the UserBusinessService
+	 * @param user
+	 * @return
+	 */
 	public String authenticate(User user) 
 	{
 		// if user is authenticated go home else display error
@@ -33,6 +38,11 @@ public class AccountController
 		}
 	}
 
+	/**
+	 * Calls register in the UserBusinessService
+	 * @param user
+	 * @return
+	 */
 	public String register(User user) 
 	{
 		// if user is found go home else display error

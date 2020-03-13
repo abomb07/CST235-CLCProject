@@ -1,3 +1,9 @@
+/*Adam Bender
+Tyler Wiggins
+Milestone 3
+March 13, 2020
+Product Controller*/
+
 package controllers;
 
 import javax.faces.bean.ManagedBean;
@@ -14,7 +20,11 @@ public class ProductController
 	@Inject
 	ProductBusinessService pbs;
 	
-	//add product function
+	/**
+	 * Calls addProduct in the ProductBusinessService
+	 * @param product
+	 * @return
+	 */
 	public String addProduct(Products product) 
 	{
 		//if the product successfully adds, it well take the user to the main product page.

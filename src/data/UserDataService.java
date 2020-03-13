@@ -1,3 +1,9 @@
+/*Adam Bender
+Tyler Wiggins
+Milestone 3
+March 13, 2020
+User Data Service*/
+
 package data;
 
 import java.sql.Connection;
@@ -13,13 +19,16 @@ public class UserDataService {
 	
 	private Database connection = null;
 
-	//Makes the database constructor
+	/**
+	 * Non default constructor takes database as parameter
+	 * @param connection
+	 */
 	public UserDataService(Database connection) {
 		this.connection = connection;
 	}
 
 	/**
-	 * Makes a create user class that will add a user to the database
+	 * Insert a user to the database
 	 * @param user
 	 * @return
 	 */
@@ -60,6 +69,11 @@ public class UserDataService {
 		}
 	}
 	
+	/**
+	 * Find user in database for login
+	 * @param user
+	 * @return
+	 */
 	public boolean findUser(User user) 
 	{
 		Connection conn = null;

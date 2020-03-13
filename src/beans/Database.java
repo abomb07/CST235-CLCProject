@@ -1,3 +1,9 @@
+/*Adam Bender
+Tyler Wiggins
+Milestone 3
+March 13, 2020
+Database Model*/
+
 package beans;
 
 import javax.faces.bean.ManagedBean;
@@ -5,7 +11,6 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean
 @ViewScoped
-//connects to the database
 public class Database 
 {
 	String url = "jdbc:postgresql://localhost:5432/postgres";

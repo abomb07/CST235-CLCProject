@@ -1,8 +1,10 @@
-package business;
+/*Adam Bender
+Tyler Wiggins
+Milestone 3
+March 13, 2020
+User Business Service*/
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+package business;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -16,7 +18,7 @@ import data.UserDataService;
 public class UserBusinessService {
 
 	/**
-	 * Check login form username and password in the text file
+	 * Check login form username and password in the userdataservice
 	 * @param user
 	 * @return boolean
 	 */
@@ -33,37 +35,6 @@ public class UserBusinessService {
 		{
 			return false;
 		}
-		
-//		boolean found = false;
-//		String username = user.getUsername();
-//		String password = user.getPassword();
-//		
-//		String tempUsername = "";
-//		String tempPassword = "";
-//
-//		try {
-//			Scanner s1 = new Scanner(new File("C:\\Users\\Adam\\workspace\\CST235-CLCProject\\src\\beans\\users.txt"));
-//			s1.useDelimiter("[,\n]");
-//
-//			while (s1.hasNext() && !found) {
-//				tempUsername = s1.next();
-//				tempPassword = s1.next();
-//
-//				if (tempUsername.trim().equals(username.trim()) && tempPassword.trim().equals(password.trim())) {
-//					found = true;
-//				}
-//			}
-//			s1.close();
-//		} catch (FileNotFoundException e) {
-//			System.out.println("ERROR");
-//		}
-//
-//		// if user is found go home else display error
-//		if (found) {
-//			return true;
-//		} else {
-//			return false;
-//		}
 	}
 	
 	/**
