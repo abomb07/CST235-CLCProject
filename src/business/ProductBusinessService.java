@@ -9,6 +9,8 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
@@ -19,7 +21,7 @@ import data.ProductDataService;
 @Local
 @Stateless
 public class ProductBusinessService {
-
+	
 	// array list of products
 	List<Products> products = new ArrayList<>();
 
@@ -30,6 +32,13 @@ public class ProductBusinessService {
 		{
 			Products p1 = new Products(0, "Samsung TV", (float) 599.99, "image.jpg", "Television", "40' Samsung TV", "2xHDMI 1xCompnent OLed 4K TV", 100);
 			products.add(p1);
+		}
+		else
+		{
+			Database db = new Database();
+			ProductDataService pds = new ProductDataService(db);
+			products.removeAll(products);
+			products.addAll(pds.findAllProducts());
 		}
 	}
 		
@@ -53,7 +62,6 @@ public class ProductBusinessService {
 		
 		if(pds.createProduct(product))
 		{
-			products.add(product);
 			return true;
 		}
 		else
@@ -69,12 +77,57 @@ public class ProductBusinessService {
 		
 		if(pds.findAllProducts() != null)
 		{
-			products.addAll(pds.findAllProducts());
 			return true;
 		}
 		else
 		{
 			return false;
 		}
+	}
+	
+	public Products findByID(int id)
+	{
+		Database db = new Database();
+		ProductDataService pds = new ProductDataService(db);
+		
+		return pds.findByID(id);
+	}
+	
+	public boolean editProduct(Products product)
+	{
+		Database db = new Database();
+		ProductDataService pds = new ProductDataService(db);
+		
+		if(pds.updateProduct(product))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public boolean deleteProduct(int id)
+	{
+		Database db = new Database();
+		ProductDataService pds = new ProductDataService(db);
+		
+		if(pds.deleteProduct(id))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public void updateList()
+	{
+		Database db = new Database();
+		ProductDataService pds = new ProductDataService(db);
+		products.removeAll(products);
+		products.addAll(pds.findAllProducts());
 	}
 }

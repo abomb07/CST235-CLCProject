@@ -46,7 +46,17 @@ Product page -->
 						<f:facet name="header">Quantity</f:facet>
 						#{p.quantity}
 					</h:column>
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:form>
+							<h:commandButton value="View Product" action="#{productController.viewProduct(p.id)}" />
+						</h:form>
+					</h:column>
 				</h:dataTable>
+				<br />
+				<h:form>
+					<h:commandButton value="Update List" action="#{productController.updateProductList()}" />
+				</h:form>
 			</div>
 		</ui:define>
 	</ui:composition>

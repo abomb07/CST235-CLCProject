@@ -7,13 +7,13 @@ Products Model*/
 package beans;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class Products {
 	// product properties
 	// data validation for all fields except id

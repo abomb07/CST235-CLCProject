@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:body> 
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+			<div align="center">
+				<!-- Data table that displays specific product -->
+				<table>
+					<tr>
+						<td><h:outputText value="Name: " /></td>
+						<td><h:outputText value="#{product.name}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Price: " /></td>
+						<td><h:outputText value="#{product.price}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Image: " /></td>
+						<td><h:outputText value="#{product.image}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Category: " /></td>
+						<td><h:outputText value="#{product.category}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Short Description: " /></td>
+						<td><h:outputText value="#{product.short_description}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Long Description: " /></td>
+						<td><h:outputText value="#{product.long_description}" /></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Quantity: " /></td>
+						<td><h:outputText value="#{product.quantity}" /></td>
+					</tr>
+					<tr>
+						<td>
+							<h:form>
+								<h:commandButton value="Edit" action="EditProductPage" />
+							</h:form>
+						</td>
+						<td>
+							<h:form>
+								<h:commandButton value="Delete" action="ConfirmProductDeletePage" />
+							</h:form>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body> 
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:body> 
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+			<div align="center">
+				<!-- Edit specific product -->
+				<h:form>
+					<table>
+						<tr>
+							<td><h:outputText value="Name: " /></td>
+							<td><h:inputText id="name" value="#{product.name}" /></td>
+							<td><h:message for="name" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Price: " /></td>
+							<td><h:inputText id="price" value="#{product.price}" /></td>
+							<td><h:message for="price" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Image: " /></td>
+							<td><h:inputText id="image" value="#{product.image}" /></td>
+							<td><h:message for="image" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Category: " /></td>
+							<td><h:inputText id="company" value="#{product.category}" /></td>
+							<td><h:message for="company" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Short Description: " /></td>
+							<td><h:inputText id="short_description" value="#{product.short_description}" /></td>
+							<td><h:message for="short_description" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Long Description: " /></td>
+							<td><h:inputText id="long_description" value="#{product.long_description}" /></td>
+							<td><h:message for="long_description" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Quantity: " /></td>
+							<td><h:inputText id="quantity" value="#{product.quantity}" /></td>
+							<td><h:message for="quantity" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td>
+								<h:commandButton value="Save" action="#{productController.updateProduct(product)}" />
+							</td>
+						</tr>
+					</table>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body> 
+</html>
