@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 3
-March 13, 2020
+Milestone 4
+April 5, 2020
 Product Business Service*/
 
 package business;
@@ -51,7 +51,7 @@ public class ProductBusinessService {
 	}
 
 	/**
-	 * Add product to database and arraylist
+	 * Add product to database
 	 * @param product
 	 * @return
 	 */
@@ -70,6 +70,10 @@ public class ProductBusinessService {
 		}
 	}
 	
+	/**
+	 * Find all products from database
+	 * @return
+	 */
 	private boolean findAllProducts()
 	{
 		Database db = new Database();
@@ -85,6 +89,11 @@ public class ProductBusinessService {
 		}
 	}
 	
+	/**
+	 * Find specific product from database
+	 * @param id
+	 * @return
+	 */
 	public Products findByID(int id)
 	{
 		Database db = new Database();
@@ -93,6 +102,11 @@ public class ProductBusinessService {
 		return pds.findByID(id);
 	}
 	
+	/**
+	 * Edit specific product from database
+	 * @param product
+	 * @return
+	 */
 	public boolean editProduct(Products product)
 	{
 		Database db = new Database();
@@ -108,6 +122,11 @@ public class ProductBusinessService {
 		}
 	}
 	
+	/**
+	 * Delete product from database
+	 * @param id
+	 * @return
+	 */
 	public boolean deleteProduct(int id)
 	{
 		Database db = new Database();
@@ -123,6 +142,9 @@ public class ProductBusinessService {
 		}
 	}
 	
+	/**
+	 * Remove all products from arraylist and add updated list back to arraylist
+	 */
 	public void updateList()
 	{
 		Database db = new Database();

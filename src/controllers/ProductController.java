@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 3
-March 13, 2020
+Milestone 4
+April 5, 2020
 Product Controller*/
 
 package controllers;
@@ -40,10 +40,16 @@ public class ProductController
 		}
 	}
 	
+	/**
+	 * View product from datatable
+	 * @param id
+	 * @return
+	 */
 	public String viewProduct(int id)
 	{
 		if(pbs.findByID(id) != null)
 		{
+			//set selected product as session variable to be accessed later
 			Products p1 = pbs.findByID(id);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("product", p1);
 			return "ViewProductPage.xhtml";
@@ -54,6 +60,11 @@ public class ProductController
 		}
 	}
 	
+	/**
+	 * Calls editProduct in the Product Business service
+	 * @param product
+	 * @return
+	 */
 	public String updateProduct(Products product)
 	{
 		//if the product successfully updates, it well take the user to the main product page.
@@ -68,6 +79,11 @@ public class ProductController
 		}
 	}
 	
+	/**
+	 * Calls deleteProduct in the ProductBusinessService
+	 * @param id
+	 * @return
+	 */
 	public String deleteProduct(int id)
 	{
 		//if the product successfully deletes, it well take the user to the main product page.
@@ -82,6 +98,10 @@ public class ProductController
 		}
 	}
 	
+	/**
+	 * Updates product datatable
+	 * @return
+	 */
 	public String updateProductList()
 	{
 		pbs.updateList();

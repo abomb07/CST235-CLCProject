@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 3
-March 13, 2020
+Milestone 4
+April 5, 2020
 Product Data Service*/
 
 package data;
@@ -97,6 +97,11 @@ public class ProductDataService {
 		return products;
 	}
 	
+	/**
+	 * Find specific product using id parameter
+	 * @param id
+	 * @return
+	 */
 	public Products findByID(int id) 
 	{
 		Connection conn = null;
@@ -126,13 +131,18 @@ public class ProductDataService {
 		return p1;
 	}
 	
+	/**
+	 * Update product in the database
+	 * @param product
+	 * @return
+	 */
 	public boolean updateProduct(Products product) 
 	{
 		Connection conn = null;
 
-		// tries connecting to the database and entering the product data into a
+		// tries connecting to the database and updating the product data into a
 		// database table,
-		// but prints an error message if it fails to connect or insert the data.
+		// but prints an error message if it fails to connect or update the data.
 		try {
 			// get database connection
 			conn = DriverManager.getConnection(connection.getUrl(), connection.getUser(), connection.getPass());
@@ -163,6 +173,11 @@ public class ProductDataService {
 		}
 	}
 	
+	/**
+	 * Delete product from database
+	 * @param id
+	 * @return
+	 */
 	public boolean deleteProduct(int id) 
 	{
 		Connection conn = null;
@@ -171,6 +186,7 @@ public class ProductDataService {
 			conn = DriverManager.getConnection(connection.getUrl(), connection.getUser(), connection.getPass());
 			String sql = "DELETE FROM milestone.tbl_products WHERE id = ?";
 			
+			//bind id to sql query
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
 
