@@ -9,8 +9,6 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
@@ -28,7 +26,7 @@ public class ProductBusinessService {
 	// non default constructor
 	public ProductBusinessService() 
 	{
-		if(!findAllProducts())
+		if(findAllProducts() == null)
 		{
 			Products p1 = new Products(0, "Samsung TV", (float) 599.99, "image.jpg", "Television", "40' Samsung TV", "2xHDMI 1xCompnent OLed 4K TV", 100);
 			products.add(p1);
@@ -74,19 +72,21 @@ public class ProductBusinessService {
 	 * Find all products from database
 	 * @return
 	 */
-	private boolean findAllProducts()
+	public List<Products> findAllProducts()
 	{
 		Database db = new Database();
 		ProductDataService pds = new ProductDataService(db);
+		List<Products> products = new ArrayList<Products>();
 		
 		if(pds.findAllProducts() != null)
 		{
-			return true;
+			products = pds.findAllProducts();
 		}
 		else
 		{
-			return false;
+			products = null;
 		}
+		return products;
 	}
 	
 	/**

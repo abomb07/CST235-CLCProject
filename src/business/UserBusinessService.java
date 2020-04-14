@@ -6,6 +6,9 @@ User Business Service*/
 
 package business;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
@@ -55,5 +58,28 @@ public class UserBusinessService {
 		{
 			return false;
 		}
+	}
+	
+	/**
+	 * Retrun findAllUsers in the UserBusinessService
+	 * @return
+	 */
+	public List<User> findAllUsers()
+	{
+		Database db = new Database();
+		UserDataService uds = new UserDataService(db);
+		
+		//arraylist of all users
+		List<User> users = new ArrayList<User>();
+		
+		if(uds.findAllUsers() != null)
+		{
+			users = uds.findAllUsers();
+		}
+		else
+		{
+			users = null;
+		}
+		return users;
 	}
 }

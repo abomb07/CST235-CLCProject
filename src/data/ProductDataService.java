@@ -58,11 +58,12 @@ public class ProductDataService {
 			stmt.setInt(7, product.getQuantity());
 
 			if (stmt.executeUpdate() > 0) {
+				conn.close();
 				return true;
 			} else {
+				conn.close();
 				return false;
 			}
-
 		}
 		// prints error message if fails to connect or insert data into the database
 		catch (SQLException e) {
@@ -91,9 +92,12 @@ public class ProductDataService {
 				products.add(new Products(rs.getInt("id"), rs.getString("name"), rs.getFloat("price"), rs.getString("image"), rs.getString("category"), rs.getString("short_description"), rs.getString("long_description"), rs.getInt("quantity")));
 			}
 			rs.close();
+			
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
+		
 		return products;
 	}
 	
@@ -124,6 +128,8 @@ public class ProductDataService {
 				p1 = new Products(rs.getInt("id"), rs.getString("name"), rs.getFloat("price"), rs.getString("image"), rs.getString("category"), rs.getString("short_description"), rs.getString("long_description"), rs.getInt("quantity"));
 			}
 			rs.close();
+			
+			conn.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -160,8 +166,10 @@ public class ProductDataService {
 			stmt.setInt(8, product.getId());
 
 			if (stmt.executeUpdate() > 0) {
+				conn.close();
 				return true;
 			} else {
+				conn.close();
 				return false;
 			}
 
@@ -192,9 +200,11 @@ public class ProductDataService {
 
 			if(stmt.executeUpdate() > 0)
 			{
+				conn.close();
 				return true;
 			}
 			else{
+				conn.close();
 				return false;
 			}
 			

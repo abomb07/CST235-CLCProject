@@ -11,6 +11,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import beans.Database;
 import beans.User;
@@ -53,10 +56,12 @@ public class UserDataService {
 			
 			if(stmt.executeUpdate() > 0)
 			{
+				conn.close();
 				return true;
 			}
 			else
 			{
+				conn.close();
 				return false;
 			}
 
@@ -67,6 +72,41 @@ public class UserDataService {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	/**
+	 * Get all users from the database
+	 * @return
+	 */
+	public List<User> findAllUsers() 
+	{
+		Connection conn = null;
+
+		List<User> users = new ArrayList<User>();
+		try {
+			conn = DriverManager.getConnection(connection.getUrl(), connection.getUser(), connection.getPass());
+			String sql = "SELECT * FROM milestone.tbl_users";
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				User u1 = new User();
+				u1.setUsername(rs.getString("username"));
+				u1.setPassword(rs.getString("password"));
+				u1.setFirstName(rs.getString("firstname"));
+				u1.setLastName(rs.getString("password"));
+				u1.setEmail(rs.getString("email"));
+				u1.setPhoneNumber(rs.getString("phonenumber"));
+				users.add(u1);
+			}
+			rs.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return users;
 	}
 	
 	/**
@@ -93,10 +133,12 @@ public class UserDataService {
 			
 			if(!rs.isBeforeFirst())
 			{
+				conn.close();
 				return false;
 			}
 			else
 			{
+				conn.close();
 				return true;
 			}
 		} 
