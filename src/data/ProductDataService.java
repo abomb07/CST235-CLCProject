@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 4
-April 5, 2020
+Milestone 6
+April 26, 2020
 Product Data Service*/
 
 package data;

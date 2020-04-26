@@ -1,13 +1,17 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 4
-April 5, 2020
+Milestone 6
+April 26, 2020
 User Model*/
 
 package beans;
 
+import java.security.Principal;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -98,5 +102,20 @@ public class User {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	
+	@PostConstruct
+	public void init()
+	{
+		// Get the logged in Principle
+		Principal principle= FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
+		if(principle == null)
+		{
+			setUsername("");
+		}
+		else
+		{
+			setUsername(principle.getName());
+		}
 	}
 }

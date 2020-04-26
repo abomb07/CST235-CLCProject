@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 4
-April 5, 2020
+Milestone 6
+April 26, 2020
 Account Controller*/
 
 package controllers;
@@ -22,20 +22,16 @@ public class AccountController
 	UserBusinessService ubs;
 	
 	/**
-	 * Call authenticate in the UserBusinessService
-	 * @param user
+	 * Invalidate user session bean and redirect to a protected page so the login module appears
 	 * @return
 	 */
-	public String authenticate(User user) 
+	public String onLogoff() 
 	{
-		// if user is authenticated go home else display error
-		if (ubs.authenticate(user)) 
-		{
-			FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
-			return "LoginSuccessPage.xhtml";
-		} else {
-			return "FailPage.xhtml";
-		}
+		// Invalidate the Session to clear the security token
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+			
+		// Redirect to a protected page (so we get a full HTTP Request) to get Login Page
+		return "HomePage.xhtml?faces-redirect=true";
 	}
 
 	/**

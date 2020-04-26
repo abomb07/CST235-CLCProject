@@ -1,3 +1,9 @@
+/*Adam Bender
+Tyler Wiggins
+Milestone 6
+April 26, 2020
+User Rest Service*/
+
 package business;
 
 import java.util.List;
@@ -25,7 +31,7 @@ public class UsersRestService
 	@GET
 	@Path("/getAllUsers")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<User> getAllUsers()
+	public List<User> getUsersAsJson()
 	{
 		return service.findAllUsers();
 	}

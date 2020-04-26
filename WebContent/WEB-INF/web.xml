@@ -3,7 +3,7 @@
   <display-name>CST235-CLCProject</display-name>
   
   <welcome-file-list>
-	<welcome-file>HomePage.xhtml</welcome-file>
+	<welcome-file>LoginPage.xhtml</welcome-file>
   </welcome-file-list>
   
   <servlet>
@@ -51,4 +51,43 @@
             org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
         </servlet-class>
     </servlet>
+    
+    <security-constraint>
+        <display-name>GCU Test Application Security Constraints</display-name>
+        <web-resource-collection>
+            <web-resource-name>Protected</web-resource-name>
+    		<description>Protect all pages in Web Root</description>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>GcuUser</role-name>
+        </auth-constraint>
+   </security-constraint>
+   <security-constraint>
+  		<web-resource-collection>
+    		<web-resource-name>Public</web-resource-name>
+    		<description>Do not Protect Web Services and JSF Resources</description>
+    		<url-pattern>/rest/*</url-pattern>
+   			<url-pattern>/javax.faces.resource/*</url-pattern>
+   			<url-pattern>/LoginPage.xhtml</url-pattern>
+   			<url-pattern>/LoginError.xhtml</url-pattern>
+   			<url-pattern>/RegisterPage.xhtml</url-pattern>
+   		</web-resource-collection>
+	</security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>ApplicationRealm</realm-name>
+        <form-login-config>
+            <form-login-page>/LoginPage.xhtml</form-login-page>
+            <form-error-page>/LoginError.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+   <security-role>
+        <description/>
+        <role-name>GcuUser</role-name>
+   </security-role>
+    
 </web-app>

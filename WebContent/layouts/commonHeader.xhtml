@@ -1,7 +1,7 @@
 <!-- Adam Bender
 Tyler Wiggins
-Milestone 2
-February 16, 2020
+Milestone 6
+April 26, 2020
 Common Header reusable facelet -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,10 +18,11 @@ Common Header reusable facelet -->
 		<h2>Adam and Tyler's Store</h2>
 		<h:form>
 			<!-- Application navigation bar -->
-			<h:commandButton action="HomePage" value="Home" />
-			<h:commandButton action="LoginPage" value="Login" />
-			<h:commandButton action="RegisterPage" value="Register" />
-			<h:commandButton action="MainProductPage" value="Products" />
+			<h:button outcome="HomePage" value="Home" />
+			<h:button outcome="LoginPage" value="Login" rendered="#{user.username eq ''}"/>
+			<h:commandButton action="#{accountController.onLogoff()}" value="Logout" rendered="#{user.username ne ''}"/>
+			<h:button outcome="RegisterPage" value="Register" />
+			<h:button outcome="MainProductPage" value="Products" />
 		</h:form>
 	</div>
 	<br />

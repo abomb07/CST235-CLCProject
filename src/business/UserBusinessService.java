@@ -1,7 +1,7 @@
 /*Adam Bender
 Tyler Wiggins
-Milestone 4
-April 5, 2020
+Milestone 6
+April 26, 2020
 User Business Service*/
 
 package business;
@@ -61,7 +61,7 @@ public class UserBusinessService {
 	}
 	
 	/**
-	 * Retrun findAllUsers in the UserBusinessService
+	 * Return findAllUsers in the UserBusinessService
 	 * @return
 	 */
 	public List<User> findAllUsers()
